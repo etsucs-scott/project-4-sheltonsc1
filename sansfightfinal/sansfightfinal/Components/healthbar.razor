@@ -1,0 +1,32 @@
+﻿<h3>healthbar</h3>
+
+<div class="health-box">
+    <div class="hp-label">HP: @HP</div>
+    <div class="hp-bar">
+        <div class="hp-fill" style="width:@HPPercent%;"></div>
+    </div>
+
+    @if (Karma > 0)
+    {
+        <div class="karma-label">KARMA: @Karma</div>
+        <div class="karma-bar">
+            <div class="karma-fill" style="width:@KarmaPercent%;"></div>
+        </div>
+    }
+</div>
+
+@code 
+{
+    [Parameter] public int HP { get; set; }
+    [Parameter] public int MaxHP { get; set; } = 92; // default max HP
+    [Parameter] public int Karma { get; set; }
+    [Parameter] public int MaxKarma { get; set; } = 10;
+
+    private int HPPercent => MaxHP > 0
+        ? Math.Clamp((int)((double)HP / MaxHP * 100), 0, 100)
+        : 0;
+
+    private int KarmaPercent => MaxKarma > 0
+        ? Math.Clamp((int)((double)Karma / MaxKarma * 100), 0, 100)
+        : 0;
+}

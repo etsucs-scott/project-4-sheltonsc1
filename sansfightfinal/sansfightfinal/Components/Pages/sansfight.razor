@@ -1,0 +1,62 @@
+﻿@page "/sansfight"
+@using sansfightfinal.Components.Models
+@using sansfightfinal.Components.Services
+@inject IFight Fight 
+
+
+<h3>sansfight</h3>
+
+<DialogueBox Text="@talkbox.CurrentDialogue" />
+<button @onclick="NextDialogue">Next</button>
+
+@if (!Fight.GameState.IsFightActive)
+{
+    <button @onclick="StartFight">Start Fight</button>
+}
+else if (Fight.GameState.IsGameOver)
+{
+    <h2>Game Over!</h2>
+    <button @onclick="RestartFight">Retry</button>
+}
+else if (Fight.GameState.IsVictory)
+{
+    <h2>You WON! You got 1 EXP and 1 gold! 
+        LEVEL UP! You are now LV 20.</h2>
+    <button @onclick="RestartFight">Play Again</button>
+}
+else
+{
+    <DialougeBox Text="@Fight.Sans.GetNextDialogue()" />
+    <thebox Player="@Fight.Player" OnMove="HandleMove" />
+    <attackphases Bones="@Fight.CurrentBones" />
+    <healthbar HP="@Fight.Player.HP" Karma="@Fight.Player.Karma" />
+}
+
+@code 
+{
+    private void StartFight()
+    {
+        Fight.StartFight();
+    }
+
+
+    private void RestartFight()
+    {
+        Fight.RestartFight();
+    }
+
+    private void HandleMove(string direction)
+    {
+        Fight.MovePlayer(direction);
+        StateHasChanged();
+    }
+
+    public Italkbox talkbox = new SansTalkBox();
+
+    private string CurrentDialogue() => talkbox.CurrentDialogue;
+    private void NextDialogue()
+    {
+        talkbox.NextDialogue();
+        StateHasChanged();
+    }
+}

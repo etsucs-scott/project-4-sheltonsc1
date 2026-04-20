@@ -1,0 +1,69 @@
+﻿@using sansfightfinal.Components.Models
+@using sansfightfinal.Components.Services
+@inject IFight Fight
+
+<h3>attackphases</h3>
+
+<div class="attack-phase">
+    @foreach (var bone in Bones)
+    {
+        <boneobstacle X="@bone.X" Y="@bone.Y" Width="@bone.Width" Height="@bone.Height"></boneobstacle>
+    }
+    @foreach (var blaster in Fight.CurrentBlasters)
+    {
+        <blasterobstacle X="@blaster.X" Y="@blaster.Y" Width="@blaster.Width" Height="@blaster.Height" IsCharging="@isCharging" IsFiring="@isFiring"></blasterobstacle>
+    }
+</div>
+
+
+
+
+@code 
+{
+    [Parameter] public List<Bone> Bones { get; set; } = new();
+
+    private System.Timers.Timer? movementTimer;
+
+    private bool isCharging = true;
+    private bool isFiring = true;
+
+    /// <summary>
+    /// starts the timer to move bones periodically (in ms)
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        movementTimer = new System.Timers.Timer(50);
+        movementTimer.Elapsed += (s, e) =>
+        {
+            foreach (var bone in Bones)
+            {
+                bone.Move();
+            }
+            InvokeAsync(StateHasChanged);
+        };
+        movementTimer.Start();
+    }
+
+    /// <summary>
+    /// stops and disposes the timer when the bone spawning is done
+    /// </summary>
+    public void Dispose()
+    {
+        movementTimer?.Stop();
+        movementTimer?.Dispose();
+    }
+
+    /// <summary>
+    /// sets charging and firing times for the blaster
+    /// </summary>
+    /// <returns></returns>
+    protected override async Task OnInitializedAsync()
+    {
+        isCharging = true;
+        await Task.Delay(1000); // Charging time
+        isCharging = false;
+        isFiring = true;
+        await Task.Delay(1500); // Firing time
+        isFiring = false;
+    }
+}

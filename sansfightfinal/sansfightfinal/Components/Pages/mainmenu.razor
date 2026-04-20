@@ -1,0 +1,48 @@
+﻿@page "/mainmenu"
+@inject NavigationManager navigation
+@inject IJSRuntime JS
+
+<h3>mainmenu</h3>
+
+<div class="mainmenu-screen">
+    <h1 class="mainmenu-title">Sans Fight</h1>
+    <p class="mainmenu-subtitle">The Comedian stands ready for Judgement</p>
+
+    <div class="menu-buttons">
+        <button class="menu-button" @onclick="StartFight"> Start Fight</button>
+        <button class="menu-button" @onclick="ShowInstructions">Instructions</button>
+        <button class="menu-button" @onclick="ExitGame">DO NOT</button>
+    </div>
+
+    @if (showInstructions)
+    {
+        <div class="intructions-box">
+            <h2>How To Play</h2>
+            <ul>
+                <li>Use WASD to move your SOUL.</li>
+                <li>Avoid the bones and blasters.</li>
+                <li>Survive.</li>
+            </ul>
+            <button class="menu-button" @onclick="HideInstructions">Back</button>
+        </div>
+    }
+</div>
+
+
+@code 
+{
+    private bool showInstructions = false;
+
+    private void StartFight()
+    {
+        navigation.NavigateTo("/sansfight");
+    }
+
+    private void ShowInstructions() => showInstructions = true;
+    private void HideInstructions() => showInstructions = false;
+
+    private async Task ExitGame()
+    {
+        await JS.InvokeVoidAsync("close");
+    }
+}

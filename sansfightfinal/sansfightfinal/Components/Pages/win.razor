@@ -1,0 +1,23 @@
+﻿@page "/win"
+
+<h3>win</h3>
+
+<div class="win-screen">
+    <h1 class="win-title"> YOU WON!! =D</h1>
+    <p class="win-message"> Sans has been defeated. Do you feel proud of yourself? </p>
+
+    <button class="main-menu" @onclick="RestartFight">Play Again</button>
+</div>
+
+@code 
+{
+    [Parameter] public EventCallback OnRestart { get; set; }
+
+    private async Task RestartFight()
+    {
+        if (OnRestart.HasDelegate)
+        {
+            await OnRestart.InvokeAsync(null);
+        }
+    }
+}

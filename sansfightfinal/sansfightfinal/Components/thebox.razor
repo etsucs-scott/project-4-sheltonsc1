@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using sansfightfinal.Components.Models
+<h3>thebox</h3>
+
+<div tabindex="0"
+     @onkeydown="HandleKeys"
+     @ref="playerBoxRef"
+     class="the-box">
+    <div class="soul" style="left:@Player.Position.Xpx; top:@Player.Position.Ypx;"></div>
+</div>
+
+@code 
+{
+    [Parameter] public Player Player { get; set; }
+    [Parameter] public EventCallback<string> OnMove { get; set; }
+
+    private ElementReference playerBoxRef;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await playerBoxRef.FocusAsync();
+        }
+    }
+
+    private async Task HandleKeys(KeyboardEventArgs e)
+    {
+        string direction = e.Key switch
+        {
+            "w" => "up",
+            "s" => "down",
+            "a" => "left",
+            "d" => "right",
+            _ => null
+        };
+
+        if (direction != null)
+        {
+            await OnMove.InvokeAsync(direction);
+        }
+    }
+}

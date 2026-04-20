@@ -1,0 +1,34 @@
+﻿<h3>blasterobstacle</h3>
+
+<div class="gaster-blaster" style="left:@Xpx; top:@Ypx; width:@Widthpx; height:@Heightpx;">
+    <div class="blaster-head"></div>
+    @if (IsCharging)
+    {
+        <div class="beam-charge"></div>
+    }
+    else if (IsFiring)
+    {
+        <div class="beam-fire"></div>
+    }
+</div>
+
+@code 
+{
+    /// <summary>
+    /// varibles for the positioning of blasters 
+    /// and default values for whether or not they are firing
+    /// </summary>
+    [Parameter] public int X { get; set; }
+    [Parameter] public int Y { get; set; }
+    [Parameter] public int Width { get; set; } = 60;
+    [Parameter] public int Height { get; set; } = 100;
+    [Parameter] public string Direction { get; set; } = "right";
+
+    [Parameter] public bool IsCharging { get; set; } = false;
+    [Parameter] public bool IsFiring { get; set; } = false;
+
+    public string Xpx => $"{X}px";
+    public string Ypx => $"{Y}px";
+    public string Widthpx => $"{Width}px";
+    public string Heightpx => $"{Height}px";
+}

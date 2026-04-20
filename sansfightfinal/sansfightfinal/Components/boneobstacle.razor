@@ -1,0 +1,20 @@
+﻿<h3>boneobstacle</h3>
+
+<div class="bone" style="left:@Xpx; 
+    top:@Ypx; 
+    width:@Widthpx; 
+    height:@Heightpx;">
+</div>
+
+@code 
+{
+    [Parameter] public int X { get; set; }
+    [Parameter] public int Y { get; set; }
+    [Parameter] public int Width { get; set; } = 20;
+    [Parameter] public int Height { get; set; } = 80;
+
+    public string Xpx => $"{X}px";
+    public string Ypx => $"{Y}px";
+    public string Widthpx => $"{Width}px";
+    public string Heightpx => $"{Height}px";
+}

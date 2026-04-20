@@ -1,0 +1,33 @@
+﻿<PageTitle>Home</PageTitle>
+@page "/"
+@inject NavigationManager nav
+@using sansfightfinal.Components
+@using sansfightfinal.Components.Models
+
+<div class="home-screen">
+    <h1 class="home-title">Welcome to the Sans Fight</h1>
+
+    <div class="menu-buttons">
+        <button class="menu-button" @onclick="StartGame">Start Fight</button>
+        <button class="menu-button" @onclick="ResetGame">Reset</button>
+    </div>
+</div>
+
+@code 
+{
+    /// <summary>
+    /// starts the fight 
+    /// </summary>
+    private void StartGame()
+    {
+        nav.NavigateTo("/sansfight");
+    }
+
+    /// <summary>
+    /// resets the fight
+    /// </summary>
+    private void ResetGame() 
+    {
+        nav.NavigateTo("/");
+    }
+}

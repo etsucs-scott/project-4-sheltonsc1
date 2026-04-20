@@ -1,0 +1,27 @@
+﻿@using sansfightfinal.Components.Services
+<h3>talkbox</h3>
+
+<div class="talk-box">
+    <div class="dialogue-text">@CurrentDialogue</div>
+
+    @if (HasMoreDialogue)
+    {
+        <button class="next-button" @onclick="NextDialogue">Next</button>
+    }
+</div>
+
+
+@code 
+{
+    [Parameter] public Italkbox Talkbox { get; set; } = default!;
+    public string CurrentDialogue => Talkbox.CurrentDialogue;
+    public bool HasMoreDialogue => Talkbox.HasMoreDialogue;
+    public void NextDialogue()
+    {
+        if (HasMoreDialogue)
+        {
+            Talkbox.NextDialogue();
+            StateHasChanged();
+        }
+    }
+}

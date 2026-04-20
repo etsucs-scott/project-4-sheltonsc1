@@ -1,0 +1,23 @@
+﻿@page "/gameover"
+
+<h3>gameover</h3>
+
+<div class="gameover-screen">
+    <h1 class="gameover-title">GAME OVER</h1>
+    <p class="gameover-message"> Get up. He is waiting for you. =)</p>
+
+    <button class="restart-button" @onclick="RestartFight">Try Again?</button>
+</div>
+
+@code 
+{
+    [Parameter] public EventCallback OnRestart { get; set; }
+
+    private async Task RestartFight()
+    {
+        if (OnRestart.HasDelegate)
+        {
+            await OnRestart.InvokeAsync();
+        }
+    }
+}
