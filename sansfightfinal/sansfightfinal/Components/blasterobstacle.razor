@@ -1,16 +1,14 @@
-﻿<h3>blasterobstacle</h3>
+﻿<h3>BlasterObstacle</h3>
 
-<div class="gaster-blaster" style="left:@Xpx; top:@Ypx; width:@Widthpx; height:@Heightpx;">
-    <div class="blaster-head"></div>
-    @if (IsCharging)
-    {
-        <div class="beam-charge"></div>
-    }
-    else if (IsFiring)
-    {
-        <div class="beam-fire"></div>
-    }
-</div>
+<div class="Blaster-Head"></div>
+@if (IsCharging)
+{
+    <div class="Beam-Charge"></div>
+}
+else if (IsFiring)
+{
+    <div class="Beam-Fire"></div>
+}
 
 @code 
 {

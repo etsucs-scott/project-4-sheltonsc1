@@ -2,21 +2,21 @@
 @inject NavigationManager navigation
 @inject IJSRuntime JS
 
-<h3>mainmenu</h3>
+<h3>MainMenu</h3>
 
-<div class="mainmenu-screen">
-    <h1 class="mainmenu-title">Sans Fight</h1>
-    <p class="mainmenu-subtitle">The Comedian stands ready for Judgement</p>
+<div class="MainMenu-Screen">
+    <h1 class="MainMenu-Title">Sans Fight</h1>
+    <p class="MainMenu-Subtitle">The Comedian stands ready for Judgement</p>
 
-    <div class="menu-buttons">
-        <button class="menu-button" @onclick="StartFight"> Start Fight</button>
-        <button class="menu-button" @onclick="ShowInstructions">Instructions</button>
-        <button class="menu-button" @onclick="ExitGame">DO NOT</button>
+    <div class="Menu-Buttons">
+        <button class="Menu-Button" @onclick="StartFight"> Start Fight</button>
+        <button class="Menu-Button" @onclick="ShowInstructions">Instructions</button>
+        <button class="Menu-Button" @onclick="ExitGame">DO NOT</button>
     </div>
 
     @if (showInstructions)
     {
-        <div class="intructions-box">
+        <div class="Instructions-Box">
             <h2>How To Play</h2>
             <ul>
                 <li>Use WASD to move your SOUL.</li>

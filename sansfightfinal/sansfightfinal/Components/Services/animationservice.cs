@@ -9,7 +9,7 @@ namespace sansfightfinal.Components.Services
     /// blasters, bones etc.
     /// also uses a timer loop to update positions and trigger visual cues
     /// </summary>
-    public class animationservice
+    public class AnimationService
     {
         private readonly System.Timers.Timer _updateTimer;
         private readonly List<Bone> _bones = new();
@@ -21,7 +21,7 @@ namespace sansfightfinal.Components.Services
         /// </summary>
         public event Action? OnFrameUpdated;
 
-        public animationservice(int intervalMs = 50)
+        public AnimationService(int intervalMs = 50)
         {
             _updateTimer = new System.Timers.Timer(intervalMs); // 20ish FPS
             _updateTimer.Elapsed += UpdateFrame;

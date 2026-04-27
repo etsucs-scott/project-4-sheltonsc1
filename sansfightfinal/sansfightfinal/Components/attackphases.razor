@@ -2,16 +2,16 @@
 @using sansfightfinal.Components.Services
 @inject IFight Fight
 
-<h3>attackphases</h3>
+<h3>AttackPhases</h3>
 
-<div class="attack-phase">
+<div class="Attack-Phase">
     @foreach (var bone in Bones)
     {
-        <boneobstacle X="@bone.X" Y="@bone.Y" Width="@bone.Width" Height="@bone.Height"></boneobstacle>
+        <BoneObstacle X="@bone.X" Y="@bone.Y" Width="@bone.Width" Height="@bone.Height"></BoneObstacle>
     }
     @foreach (var blaster in Fight.CurrentBlasters)
     {
-        <blasterobstacle X="@blaster.X" Y="@blaster.Y" Width="@blaster.Width" Height="@blaster.Height" IsCharging="@isCharging" IsFiring="@isFiring"></blasterobstacle>
+        <BlasterObstacle X="@blaster.X" Y="@blaster.Y" Width="@blaster.Width" Height="@blaster.Height" IsCharging="@isCharging" IsFiring="@isFiring"></BlasterObstacle>
     }
 </div>
 
@@ -26,6 +26,11 @@
 
     private bool isCharging = true;
     private bool isFiring = true;
+
+    public attackphases(IFight fight)
+    {
+        Fight = fight;
+    }
 
     /// <summary>
     /// starts the timer to move bones periodically (in ms)

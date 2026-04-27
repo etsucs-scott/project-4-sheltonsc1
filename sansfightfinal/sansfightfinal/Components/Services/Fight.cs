@@ -4,7 +4,7 @@ namespace sansfightfinal.Components.Services
 {
     public class Fight : IFight
     {
-        private readonly Iinput _input;
+        private readonly IInput _input;
         public Player Player { get; private set; } = new Player();
         public Sans Sans { get; private set; } = new Sans();
         public Attack CurrentAttack { get; private set; }
@@ -12,9 +12,10 @@ namespace sansfightfinal.Components.Services
         public List<Blaster> CurrentBlasters { get; private set; } = new();
         public List<Bone> CurrentBones { get; private set; } = new();
 
-        public Fight(Iinput input)
+        public Fight(IInput input, Attack currentAttack)
         {
             _input = input;
+            CurrentAttack = currentAttack;
         }
 
         /// <summary>

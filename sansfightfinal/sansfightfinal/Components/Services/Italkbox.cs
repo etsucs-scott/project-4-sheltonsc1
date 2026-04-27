@@ -3,7 +3,7 @@
     /// <summary>
     /// handles sans's dialogue during the fight
     /// </summary>
-    public interface Italkbox
+    public interface ITalkbox
     {
         /// <summary>
         /// gets the current dialogue line

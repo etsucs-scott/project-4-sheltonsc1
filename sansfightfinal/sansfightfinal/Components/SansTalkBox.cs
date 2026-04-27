@@ -3,14 +3,14 @@
 namespace sansfightfinal.Components
 {
     /// <summary>
-    /// implements Italkbox
+    /// implements ITalkbox
     /// </summary>
-    public class SansTalkBox : Italkbox
+    public class SansTalkBox : ITalkbox
     {
         /// <summary>
         /// list of of all available lines for sans to use
         /// </summary>
-        private readonly List<string> _dialouge = new()
+        private readonly List<string> _dialogue = new()
         {
             "it's a beautiful day outside.\r\n" +                   //dialogue lines taken from https://undertale.fandom.com/wiki/Sans/In_Battle#Quotes
             "birds are singing, flowers are blooming...\r\n" +
@@ -112,12 +112,12 @@ namespace sansfightfinal.Components
         /// <summary>
         /// 
         /// </summary>
-        public string CurrentDialogue => _index < _dialouge.Count ? _dialouge[_index] : string.Empty;
+        public string CurrentDialogue => _index < _dialogue.Count ? _dialogue[_index] : string.Empty;
 
         /// <summary>
         /// checks for more dialogue lines
         /// </summary>
-        public bool HasMoreDialogue => _index < _dialouge.Count - 1;
+        public bool HasMoreDialogue => _index < _dialogue.Count - 1;
 
         /// <summary>
         /// gets the next dialogue line
@@ -128,7 +128,7 @@ namespace sansfightfinal.Components
             if (HasMoreDialogue)
             {
                 _index++;
-                return _dialouge[_index];
+                return _dialogue[_index];
             }
             return string.Empty;
         }

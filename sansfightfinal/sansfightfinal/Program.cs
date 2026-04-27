@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using sansfightfinal.Components;
 using sansfightfinal.Components.Services;
+using sansfightfinal.Components.Models;
 
 
 namespace sansfightfinal
@@ -15,9 +16,9 @@ namespace sansfightfinal
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
             builder.Services.AddScoped<IFight, Fight>();
-            builder.Services.AddScoped<animationservice>();
-            builder.Services.AddScoped<Iinput>();
-            builder.Services.AddScoped<Italkbox, SansTalkBox>();
+            builder.Services.AddScoped<AnimationService>();
+            builder.Services.AddScoped<IInput, InputHandler>();
+            builder.Services.AddScoped<ITalkbox, SansTalkBox>();
 
             var app = builder.Build();
 

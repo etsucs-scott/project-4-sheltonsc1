@@ -3,7 +3,7 @@
     /// <summary>
     /// defines input handling for player actions
     /// </summary>
-    public interface Iinput
+    public interface IInput
     {
         /// <summary>
         /// handles directional movement

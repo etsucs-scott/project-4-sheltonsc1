@@ -4,7 +4,7 @@
 @inject IFight Fight 
 
 
-<h3>sansfight</h3>
+<h3>SansFight</h3>
 
 <DialogueBox Text="@talkbox.CurrentDialogue" />
 <button @onclick="NextDialogue">Next</button>
@@ -51,7 +51,7 @@ else
         StateHasChanged();
     }
 
-    public Italkbox talkbox = new SansTalkBox();
+    public ITalkbox talkbox = new SansTalkBox();
 
     private string CurrentDialogue() => talkbox.CurrentDialogue;
     private void NextDialogue()

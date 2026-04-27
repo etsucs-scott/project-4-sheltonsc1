@@ -1,7 +1,7 @@
 ﻿@using sansfightfinal.Components.Services
 <h3>talkbox</h3>
 
-<div class="talk-box">
+<div class="Talk-Box">
     <div class="dialogue-text">@CurrentDialogue</div>
 
     @if (HasMoreDialogue)
@@ -13,7 +13,7 @@
 
 @code 
 {
-    [Parameter] public Italkbox Talkbox { get; set; } = default!;
+    [Parameter] public ITalkbox Talkbox { get; set; } = default!;
     public string CurrentDialogue => Talkbox.CurrentDialogue;
     public bool HasMoreDialogue => Talkbox.HasMoreDialogue;
     public void NextDialogue()
