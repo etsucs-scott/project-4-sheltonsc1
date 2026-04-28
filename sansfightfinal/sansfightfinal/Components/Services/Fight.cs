@@ -59,7 +59,7 @@ namespace sansfightfinal.Components.Services
         public void MovePlayer(string direction)
         {
             var pos = Player.Position;
-            Player.Move(direction, pos.X, pos.Y, 10);
+            Player.Move(direction);
 
             foreach (var bone in CurrentBones)
             {

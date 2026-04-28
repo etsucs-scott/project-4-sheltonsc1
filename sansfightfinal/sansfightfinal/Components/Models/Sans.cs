@@ -8,6 +8,8 @@ namespace sansfightfinal.Components.Models
     /// </summary>
     public class Sans
     {
+        public int HP { get; set; } = 1;
+        public int AttackDamage { get; set; } = 1;
         private int attackIndex = 0;
         private int dialougeIndex = 0;
 
@@ -154,6 +156,13 @@ namespace sansfightfinal.Components.Models
             var line = DialogueLines[dialougeIndex % DialogueLines.Count];
             dialougeIndex++;
             return line;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (HP <= 0) return;
+            HP -= damage;
+            if (HP < 0) HP = 0;
         }
 
         /// <summary>

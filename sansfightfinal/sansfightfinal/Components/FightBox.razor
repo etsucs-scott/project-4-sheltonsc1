@@ -6,15 +6,20 @@
      @onkeydown="HandleKeys"
      @ref="playerBoxRef"
      class="Fight-Box">
-    <div class="soul" style="left:@Player.Position.Xpx; top:@Player.Position.Ypx;"></div>
+    <div class="soul" style="left:@_player.Position.Xpx; top:@_player.Position.Ypx;"></div>
 </div>
 
 @code 
 {
-    [Parameter] public Player Player { get; set; }
+    [Parameter] public Player _player { get; set; }
     [Parameter] public EventCallback<string> OnMove { get; set; }
 
     private ElementReference playerBoxRef;
+
+    public FightBox(Player player)
+    {
+        _player = player;
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -26,7 +31,7 @@
 
     private async Task HandleKeys(KeyboardEventArgs e)
     {
-        string direction = e.Key switch
+        string? direction = e.Key switch
         {
             "w" => "up",
             "s" => "down",

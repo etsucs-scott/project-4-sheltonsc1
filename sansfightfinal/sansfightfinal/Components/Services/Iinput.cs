@@ -1,4 +1,6 @@
-﻿namespace sansfightfinal.Components.Services
+﻿using sansfightfinal.Components.Models;
+
+namespace sansfightfinal.Components.Services
 {
     /// <summary>
     /// defines input handling for player actions
@@ -19,7 +21,7 @@
         /// <summary>
         /// handles action input
         /// </summary>
-        void Action(string action);
+        void Action(string action, Sans target, string item);
 
         /// <summary>
         /// resets inputs
