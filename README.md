@@ -1,43 +1,14 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/qJo95Bxr)
-# CSCI 1260 — Project
+# CSCI 1260 — Project 4: Sans Fight
 
-## Project Instructions
-All project requirements, grading criteria, and submission details are provided on **D2L**.  
-Refer to D2L as the *authoritative source* for this assignment.
+Hello and welcome to my rendition of the Sans boss fight from Undertale!
 
-This repository is intentionally minimal. You are responsible for:
-- Creating the solution and projects
-- Designing the class structure
-- Implementing the required functionality
+# Goal
+The goal of the fight is to survive/defeat Sans in a 1v1 wihtout getting dunked on.
 
----
+# Controls 
+Use WASD to move around the fight box and 1234 to select between FIGHT, ACT, ITEM, and MERCY (respectively)
 
-## Getting Started (CLI)
-
-You may use **Visual Studio**, **VS Code**, or the **terminal**.
-
-### Create a solution
-```bash
-dotnet new sln -n ProjectName
-```
-
-### Create a project (example: console app)
-```bash
-dotnet new console -n ProjectName.App
-```
-
-### Add the project to the solution
-```bash
-dotnet sln add ProjectName.App
-```
-
-### Build and run
-```bash
-dotnet build
-dotnet run --project ProjectName.App
-```
-
-## Notes
-- Commit early and commit often.
-- Your repository history is part of your submission.
-- Update this README with build/run instructions specific to your project.
+# Win Condition 
+Defeating Sans after a number of turns will allow Sans's dodge ability to max out so use this to your advantage 
+(This is so the fight doesnt drag on)
