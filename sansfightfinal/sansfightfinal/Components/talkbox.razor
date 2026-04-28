@@ -13,9 +13,16 @@
 
 @code 
 {
+    /// <summary>
+    /// variables for the talkbox, including the current dialogue and whether there is more dialogue to show
+    /// </summary>
     [Parameter] public ITalkbox Talkbox { get; set; } = default!;
     public string CurrentDialogue => Talkbox.CurrentDialogue;
     public bool HasMoreDialogue => Talkbox.HasMoreDialogue;
+
+    /// <summary>
+    /// Advances to the next dialogue in the talkbox if available.
+    /// </summary>
     public void NextDialogue()
     {
         if (HasMoreDialogue)

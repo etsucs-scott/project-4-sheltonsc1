@@ -11,16 +11,31 @@
 
 @code 
 {
+    /// <summary>
+    /// parameters for the fight box, including the player and the event callback for movement
+    /// </summary>
     [Parameter] public Player _player { get; set; }
     [Parameter] public EventCallback<string> OnMove { get; set; }
 
+    /// <summary>
+    /// reference to the player box element for focusing
+    /// </summary>
     private ElementReference playerBoxRef;
 
+    /// <summary>
+    /// new instance of the fight box component, taking a player as a parameter
+    /// </summary>
+    /// <param name="player">The player instance to be used in the fight box</param>
     public FightBox(Player player)
     {
         _player = player;
     }
 
+    /// <summary>
+    /// Called after the component has been rendered. If it's the first render, focus the player box.
+    /// </summary>
+    /// <param name="firstRender">Indicates if this is the first render of the component.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -29,6 +44,11 @@
         }
     }
 
+    /// <summary>
+    /// Handles key press events for player movement.
+    /// </summary>
+    /// <param name="e">The keyboard event arguments.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     private async Task HandleKeys(KeyboardEventArgs e)
     {
         string? direction = e.Key switch

@@ -56,6 +56,11 @@ namespace sansfightfinal.Components.Services
             GameState.EndFight(isVictory);
         }
 
+        /// <summary>
+        /// checks for collisions between the player and any active bones, 
+        /// applying karma damage if a collision is detected and checking for end of fight conditions
+        /// </summary>
+        /// <param name="direction">The direction in which the player is moving.</param>
         public void MovePlayer(string direction)
         {
             var pos = Player.Position;
@@ -74,6 +79,10 @@ namespace sansfightfinal.Components.Services
             }
         }
 
+        /// <summary>
+        /// excutes the next attack in Sans's pattern, applying damage to the player if they fail to dodge and checking for end of fight conditions
+        /// </summary>
+        /// <returns></returns>
         public async Task ExecuteNextAttackAsync()
         {
             CurrentAttack = (Attack)Sans.GetNextAttack();
@@ -85,6 +94,10 @@ namespace sansfightfinal.Components.Services
             }
         }
 
+        /// <summary>
+        /// handles the result of a dodge attempt, applying karma damage if the dodge was unsuccessful
+        /// </summary>
+        /// <param name="success">Indicates whether the dodge was successful.</param>
         public void HandleDodge(bool success)
         {
             if (!success)

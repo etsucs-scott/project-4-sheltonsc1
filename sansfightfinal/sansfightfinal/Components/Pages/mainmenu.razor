@@ -31,6 +31,9 @@
 
 @code 
 {
+    /// <summary>
+    /// Indicates whether the instructions are currently being shown.
+    /// </summary>
     private bool showInstructions = false;
 
     private void StartFight()
@@ -38,9 +41,19 @@
         navigation.NavigateTo("/sansfight");
     }
 
+    /// <summary>
+    /// Shows the instructions panel.
+    /// </summary>
     private void ShowInstructions() => showInstructions = true;
-    private void HideInstructions() => showInstructions = false;
 
+    /// <summary>
+    /// Hides the instructions panel.
+    /// </summary>
+    private void HideInstructions() => showInstructions = false;
+    
+    /// <summary>
+    /// Exits the game by invoking the JavaScript close function.
+    /// </summary>
     private async Task ExitGame()
     {
         await JS.InvokeVoidAsync("close");

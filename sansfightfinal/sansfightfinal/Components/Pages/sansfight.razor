@@ -50,10 +50,16 @@ else
         Fight.MovePlayer(direction);
         StateHasChanged();
     }
-
+    /// <summary>
+    /// creates a new instance of sans's talkbox
+    /// </summary>
     public ITalkbox talkbox = new SansTalkBox();
 
     private string CurrentDialogue() => talkbox.CurrentDialogue;
+
+    /// <summary>
+    /// Advances to the next dialogue in the talkbox and updates the UI.
+    /// </summary>
     private void NextDialogue()
     {
         talkbox.NextDialogue();

@@ -20,11 +20,23 @@
 
 @code 
 {
+    /// <summary>
+    /// The list of bones currently active in the attack phase.
+    /// </summary>
     [Parameter] public List<Bone> Bones { get; set; } = new();
 
+    /// <summary>
+    /// The timer used to move bones periodically.
+    /// </summary>
     private System.Timers.Timer? movementTimer;
 
+    /// <summary>
+    /// Indicates whether the blaster is currently charging.
+    /// </summary>
     private bool isCharging = true;
+    /// <summary>
+    /// Indicates whether the blaster is currently firing.
+    /// </summary>
     private bool isFiring = true;
 
     public AttackPhases(IFight fight)

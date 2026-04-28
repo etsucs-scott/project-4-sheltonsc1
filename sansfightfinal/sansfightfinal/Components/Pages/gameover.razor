@@ -11,8 +11,15 @@
 
 @code 
 {
+    /// <summary>
+    /// Event callback for restarting the game.
+    /// </summary>
     [Parameter] public EventCallback OnRestart { get; set; }
 
+    /// <summary>
+    /// method for handling the restart button click event, invoking the OnRestart callback if it has a delegate assigned.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation.</returns>
     private async Task RestartFight()
     {
         if (OnRestart.HasDelegate)
