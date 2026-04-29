@@ -80,5 +80,11 @@ namespace sansfightfinal.Components.Services
         /// </summary>
         /// <param name="success">true is dodged, false as default</param>
         void HandleDodge(bool success);
+
+        /// <summary>
+        /// handles the spawning of bones and blasters on the board
+        /// </summary>
+        /// <param name="bone">bone being spawned</param>
+        void SpawnBone(Bone bone);
     }
 }

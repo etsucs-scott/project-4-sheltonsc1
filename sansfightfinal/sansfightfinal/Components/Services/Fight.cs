@@ -123,25 +123,29 @@ namespace sansfightfinal.Components.Services
                     CurrentBlasters.Add(new Blaster(100, 0, "left"));
                     break;
                 case "Bone Barrage":
-                    CurrentBones.Add(new Bone { X = 0, Y = 0, Width = 150, Height = 20, Direction = "right", Speed = 3 });
+                    var boneBarrage = new Bone(0, 0, "right") { Width = 150, Height = 20, Speed = 3 };
+                    CurrentBones.Add(boneBarrage);
                     break;
                 case "Bone Wave":
                     for (int i = 0; i < 5; i++)
                     {
-                        CurrentBones.Add(new Bone { X = 0, Y = i * 40, Width = 20, Height = 200, Direction = "up", Speed = 3 });
-                    };
+                        var boneWave = new Bone(0, i * 40, "up") { Width = 20, Height = 200, Speed = 3 };
+                        CurrentBones.Add(boneWave);
+                    }
                     break;
                 case "Bone Wall":
                     for (int i = 0; i < 4; i++)
                     {
-                        CurrentBones.Add(new Bone { X = i * 60, Y = 0, Width = 50, Height = 300, Direction = "down", Speed = 2 });
-                    };
+                        var boneWall = new Bone(i * 60, 0, "down") { Width = 50, Height = 300, Speed = 2 };
+                        CurrentBones.Add(boneWall);
+                    }
                     break;
                 case "Parkour":
                     for (int i = 0; i < 3; i++)
                     {
-                        CurrentBones.Add(new Bone { X = i * 100, Y = 0, Width = 30, Height = 150, Direction = "right", Speed = 4 });
-                    };
+                        var boneParkour = new Bone(i * 100, 0, "right") { Width = 30, Height = 150, Speed = 4 };
+                        CurrentBones.Add(boneParkour);
+                    }
                     break;
             }
         }
