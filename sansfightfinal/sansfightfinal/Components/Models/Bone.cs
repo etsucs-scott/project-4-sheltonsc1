@@ -9,6 +9,12 @@
         public string Direction { get; set; } = "right";
         public int Speed { get; set; } = 5;
 
+        public Bone(int x, int y, string direction)
+        {
+            X = x;
+            Y = y;
+            Direction = direction;
+        }
         /// <summary>
         /// moves the bone in its set direction
         /// </summary>

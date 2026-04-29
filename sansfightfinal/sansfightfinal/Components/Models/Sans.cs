@@ -9,8 +9,8 @@ namespace sansfightfinal.Components.Models
     public class Sans
     {
         public int HP { get; set; } = 1;
-        public int AttackDamage { get; set; } = 1;
-        private int attackIndex = 0;
+        public int attackDamage { get; set; } = 1;
+        private int attackIndex = 1;
         private int dialougeIndex = 0;
 
         /// <summary>

@@ -139,7 +139,7 @@ namespace sansfightfinal.Components.Models
         /// <summary>
         /// sets the player's dodging state for a small window
         /// </summary>
-        public async Task DodgeAsync(int durationMs = 500)
+        public async Task DodgeAsync(int durationMs = 1000)
         {
             IsDodging = true;
             await Task.Delay(durationMs);
